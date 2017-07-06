@@ -16,12 +16,14 @@ describe('factory', () => {
           return foo;
         }
 
-        return new Promise(resolve => {
+        let result = await new Promise(resolve => {
           setTimeout(() => {
             foo = 'foo-data';
             resolve(foo);
           }, 500);
         });
+
+        return result;
       };
 
       let fooz = await factory.singleton('foo', fooFactory);
@@ -36,12 +38,14 @@ describe('factory', () => {
           return foo;
         }
 
-        return new Promise(resolve => {
+        let result = await new Promise(resolve => {
           setTimeout(() => {
             foo = 'foo-fn';
             resolve(foo);
           }, 500);
         });
+
+        return result;
       };
 
       let fooz = await factory.singleton(fooFactory);
@@ -56,12 +60,14 @@ describe('factory', () => {
           return foo;
         }
 
-        return new Promise(resolve => {
+        let result = await new Promise(resolve => {
           setTimeout(() => {
             foo = 'foo-wait';
             resolve(foo);
           }, 500);
         });
+
+        return result;
       };
 
       let manyFoos = [];
