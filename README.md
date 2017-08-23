@@ -1,7 +1,7 @@
 # async-factory
 
 ```js
-const Factory = require('async-factory);
+const Factory = require('async-factory');
 const factory = new Factory();
 
 async function asyncGetter () {
